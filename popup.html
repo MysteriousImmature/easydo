@@ -8,12 +8,56 @@
 </head>
 <body>
   <div id="todo-container">
-    <h1>Easy ToDo </h1>
-    <input type="text" id="taskInput" placeholder="Add a task...">
-    <button id="addTaskBtn">Add Task</button>
+    <div class="header">
+      <h1>EasyDo</h1>
+      <div class="theme-toggle">
+        <button id="themeToggle" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+    
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search tasks..." autocomplete="off">
+    </div>
+
+    <div class="task-input-container">
+      <input type="text" id="taskInput" placeholder="What needs to be done?" autocomplete="off">
+      <div class="task-options">
+        <select id="prioritySelect">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <input type="date" id="dueDate" title="Select date">
+        <input type="text" id="categoryInput" placeholder="Category" list="categories">
+        <datalist id="categories"></datalist>
+      </div>
+      <button id="addTaskBtn">Add Task</button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="today">Today</button>
+      <button class="filter-btn" data-filter="high">High</button>
+      <button class="filter-btn" data-filter="completed">Done</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-value" id="totalTasks">0</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="completedTasks">0</span>
+        <span class="stat-label">Done</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="pendingTasks">0</span>
+        <span class="stat-label">Todo</span>
+      </div>
+    </div>
+
     <ul id="taskList"></ul>
   </div>
-
   <script src="popup.js"></script>
 </body>
 </html>
